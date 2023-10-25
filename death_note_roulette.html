@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Note Roulette</title>
+    <link rel="stylesheet" href="css/deathnote-roulette.css">
+</head>
+
+<body>
+<img src="./DEATHRoulette.png" max-width="500px"> </img>
+<div class="roulette-container">
+    <div class="roulette" id="roulette1">
+        <div class="wheel">
+            <div class="names">
+                <div class="name">太宰治</div>
+                <div class="name">栗原悠真</div>
+                <div class="name">青柳颯太</div>
+                <div class="name">木村朋広</div>
+                <div class="name">ヘミングウェイ</div>
+                <div class="name">ゴッホ</div>
+            </div>
+        </div>
+    </div>
+    <div class="roulette" id="roulette2">
+        <div class="wheel">
+            <div class="names">
+                <div class="name">入水自殺</div>
+                <div class="name">割腹自殺</div>
+                <div class="name">服毒自殺</div>
+                <div class="name">ガス自殺</div>
+                <div class="name">散弾銃自殺</div>
+                <div class="name">拳銃自殺</div>
+            </div>
+        </div>
+    </div>
+    <button id="spin1">WHO</button>
+    <button id="spin2">WHY</button>
+</div>
+<script>
+    const roulette1 = document.getElementById("roulette1");
+    const roulette2 = document.getElementById("roulette2");
+    const nameElements1 = roulette1.querySelectorAll('.name');
+    const nameElements2 = roulette2.querySelectorAll('.name');
+    let spinning1 = false;
+    let spinning2 = false;
+
+    document.getElementById("spin1").addEventListener("click", function () {
+        if (!spinning1) {
+            spinning1 = true;
+            spinRoulette(roulette1, nameElements1);
+        }
+    });
+
+    document.getElementById("spin2").addEventListener("click", function () {
+        if (!spinning2) {
+            spinning2 = true;
+            spinRoulette(roulette2, nameElements2);
+        }
+    });
+
+    function spinRoulette(roulette, nameElements) {
+        const names = Array.from(nameElements).map(nameElement => nameElement.textContent);
+        const randomIndex = Math.floor(Math.random() * names.length);
+        const degrees = randomIndex * (360 / names.length);
+        const rotation = 360 * 5 + degrees; // 5回転させる
+        roulette.style.transition = 'transform 5s ease-out';
+        roulette.style.transform = `rotate(${rotation}deg)`;
+        setTimeout(() => {
+            alert("Selected: " + names[randomIndex]);
+            if (roulette === roulette1) {
+                spinning1 = false;
+            } else if (roulette === roulette2) {
+                spinning2 = false;
+            }
+        }, 5500); // 5秒後にアラートを表示
+    }
+</script>
+</body>
+</html>

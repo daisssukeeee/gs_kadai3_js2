@@ -1,0 +1,93 @@
+/* ページ全体のスタイル */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ヘッダーのスタイル */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    font-family: DEATHNOTEFont;
+    margin: 0;
+}
+
+/* メインコンテナのスタイル */
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+.note-container {
+    background-color: #111;
+    border: 2px solid #666;
+    padding:30px;
+    padding-right:40px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333;
+    border: 1px solid #666;
+    color: #fff;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border: 1px solid #999;
+}
+
+button {
+    background-color: #d00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #b00;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #444;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #222;
+    font-weight: bold;
+}
+
+/* フッターのスタイル */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #111;
+}
+
+small {
+    font-size: 12px;
+}
